@@ -15,10 +15,13 @@ interface OrderDao {
     suspend fun insertItems(items: List<ItemEntity>)
 
     @Transaction
-    suspend fun insertOrderWithItems(order: OrderEntity, items: List<ItemEntity>) {
+    suspend fun insertOrderWithItems(order: OrderEntity, items: List<ItemEntity>): Int {
         val orderId = insertOrder(order).toInt()
         val itemsWithOrderId = items.map { it.copy(orderId = orderId) }
+
         insertItems(itemsWithOrderId)
+
+        return orderId
     }
 
     @Query("SELECT * FROM OrderEntity ORDER BY date DESC")
