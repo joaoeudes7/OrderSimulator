@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    kotlin("plugin.serialization") version "2.1.10"
     id("com.google.devtools.ksp") version "2.1.0-1.0.29"
 }
 
@@ -51,16 +52,26 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
 
-    val roomVersion = "2.6.1"
+    implementation(libs.navigation.compose)
 
+    implementation(libs.kotlinx.serialization.json)
+
+    val roomVersion = "2.6.1"
     implementation(libs.androidx.room.runtime)
-    ksp("androidx.room:room-compiler:$roomVersion")
     implementation(libs.androidx.room.ktx)
-    testImplementation(libs.androidx.room.testing)
-    // optional - Paging 3 Integration
+    ksp("androidx.room:room-compiler:$roomVersion")
+
+    // Paging 3 Integration
     implementation(libs.androidx.room.paging)
 
+    // Ktor
+    implementation(project.dependencies.platform("io.insert-koin:koin-bom:4.0.2"))
+    implementation(libs.koin.core)
+    implementation(libs.koin.androidx.compose)
+
     testImplementation(libs.junit)
+    testImplementation(libs.androidx.room.testing)
+    testImplementation(libs.koin.android.test)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
