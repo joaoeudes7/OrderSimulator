@@ -6,4 +6,5 @@ interface OrderRepository {
     suspend fun getOrders() : List<OrderModel>
     suspend fun insertOrderWithItems(order: OrderModel): Int
     suspend fun editOrderWithItems(order: OrderModel)
+    suspend fun getOrderById(orderId: Int): OrderModel
 }
