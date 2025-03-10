@@ -8,15 +8,16 @@ import com.jedev.simulator.simulator.order.domain.models.OrderModel
 
 fun OrderModel.toEntity(): OrderEntity {
     return OrderEntity(
-        id = id ?: 0,
+        id = id,
         date = date,
+        clientName = clientName
     )
 }
 
 fun ItemModel.toEntity(orderId: Int?): ItemEntity {
     return ItemEntity(
         id = id ?: 0,
-        name = name,
+        description = description,
         quantity = quantity,
         unitPrice = unitPrice,
         orderId = orderId ?: 0,
@@ -26,7 +27,7 @@ fun ItemModel.toEntity(orderId: Int?): ItemEntity {
 fun ItemEntity.toModel(): ItemModel {
     return ItemModel(
         id = id,
-        name = name,
+        description = description,
         quantity = quantity,
         unitPrice = unitPrice,
     )
@@ -36,6 +37,7 @@ fun OrderWithItems.toModel(): OrderModel {
     return OrderModel(
         id = order.id,
         date = order.date,
-        items = items.map { it.toModel() }
+        clientName = order.clientName,
+        items = items.map { it.toModel() }.toMutableList()
     )
 }

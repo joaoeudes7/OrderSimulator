@@ -14,6 +14,10 @@ class OrderRepositoryImpl(
         return db.orderDao().getAllOrders().map { it.toModel() }
     }
 
+    override suspend fun getOrderById(orderId: Int): OrderModel {
+        return db.orderDao().getOrderById(orderId).toModel()
+    }
+
     override suspend fun insertOrderWithItems(order: OrderModel): Int {
         return db.orderDao().insertOrderWithItems(
             order.toEntity(),
