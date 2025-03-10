@@ -13,4 +13,6 @@
     <string name="prefix_price">R$</string>
     <string name="title_app">Simulador de Vendas</string>
     <string name="no_items_found">Nenhum item cadastrado.</string>
+    <string name="press_back_again">Pressione novamente para sair</string>
+    <string name="safe_exit_finished">Espero que tenha gostado! :)</string>
 </resources>
