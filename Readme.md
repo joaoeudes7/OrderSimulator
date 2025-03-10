@@ -14,7 +14,7 @@ This is an Android application built with **Kotlin** using **Jetpack Compose** a
 The project follows **Clean Architecture** and is divided into three main layers:
 
 ```
-com.yourapp.orders
+root
 │── data
 │── domain
 │── ui
