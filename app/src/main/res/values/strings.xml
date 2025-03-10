@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Simulador Vendas Omie</string>
+    <string name="name_client">Nome do Cliente</string>
+    <string name="add_item">Adicionar Item</string>
+    <string name="items">Itens</string>
+    <string name="save">Salvar</string>
+    <string name="unit_price">Preço Unitário</string>
+    <string name="minus">-</string>
+    <string name="add">+</string>
+    <string name="quantity">Quantidade</string>
+    <string name="delete">Remover</string>
+    <string name="description">Descrição</string>
+    <string name="prefix_price">R$</string>
+    <string name="title_app">Simulador de Vendas</string>
+    <string name="no_items_found">Nenhum item cadastrado.</string>
 </resources>
