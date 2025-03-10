@@ -6,7 +6,8 @@ data class ItemModel(
     val id: Int? = null,
     var description: String = "",
     val quantity: Int = 1,
-    val unitPrice: Double = 0.0
+    val unitPrice: Double = 0.0,
+    val unitPriceStr: String = "$unitPrice",
 ) {
     val totalPrice: Double
         get() = quantity * unitPrice

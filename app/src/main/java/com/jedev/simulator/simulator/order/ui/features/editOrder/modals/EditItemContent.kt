@@ -17,6 +17,7 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -43,11 +44,12 @@ fun EditItemContent(
 
     OutlinedTextField(
         modifier = Modifier.fillMaxWidth(),
-        value = item.unitPrice.toString(),
+        value = item.unitPriceStr,
         prefix = { Text(stringResource(R.string.prefix_price)) },
         onValueChange = { actions.onChangeUnitPriceItem(it) },
         keyboardOptions = KeyboardOptions.Default.copy(
-            keyboardType = KeyboardType.Decimal
+            keyboardType = KeyboardType.Decimal,
+            imeAction = ImeAction.Done
         ),
         label = { Text(stringResource(R.string.unit_price)) }
     )

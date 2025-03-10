@@ -64,8 +64,14 @@ class EditOrderScreenViewModel(
     }
 
     fun onChangeUnitPrice(price: String) = viewModelScope.launch {
+
         uiState.currentItemModelSelected = uiState.currentItemModelSelected?.copy(
-            unitPrice = price.trim().replace("\n", "").replace(",", "").toDouble()
+            unitPriceStr = price,
+            unitPrice = price.replace(Regex("[^0-9.]"), "")
+                .replace(Regex("^(\\d*\\.\\d{0,2}).*"), "$1") // Mantém até 2 casas decimais
+                .replace(Regex("\\.{2,}"), ".") // Remove múltiplos pontos
+                .replace(Regex("^\\."), "0.") // Corrige valores começando com "."
+                .toDouble()
         )
     }
 

@@ -1,5 +1,6 @@
 package com.jedev.simulator.simulator.order.ui.features.editOrder
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -41,6 +42,10 @@ fun EditOrderScreen(
     onBack: () -> Unit
 ) {
     val sheetState = rememberModalBottomSheetState()
+
+    BackHandler {
+        vm.onSaveOrder()
+    }
 
     LaunchedEffect(orderId) {
         if (orderId != null) {

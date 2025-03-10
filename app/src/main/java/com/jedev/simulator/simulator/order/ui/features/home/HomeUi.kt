@@ -8,11 +8,7 @@ class HomeUiState : UiState {
     var orders by mutableStateOf(listOf<OrderModel>())
 }
 
-class HomeUiEvents {
-}
-
 class HomeUiActions(
     val onOrderClick: (Int) -> Unit = {},
     val onAddOrder: () -> Unit = {}
-) {
-}
+)
